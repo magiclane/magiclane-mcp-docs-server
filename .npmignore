@@ -1,0 +1,29 @@
+# Safety net only: the `files` allowlist in package.json (dist, src, LICENSES,
+# REUSE.toml, plus the files npm always includes: package.json, README,
+# LICENSE) decides what is published. These rules matter only if that list is
+# ever removed.
+test/
+coverage/
+scripts/
+docs/
+.husky/
+.vscode/
+vitest.config.ts
+eslint.config.js
+rollup.config.js
+tsconfig*.json
+.prettierrc
+.prettierignore
+cspell.config.json
+manifest.json
+.mcpbignore
+.env
+.env.*
+CLAUDE.md
+AGENTS.md
+Dockerfile
+.dockerignore
+*.tsbuildinfo
+*.log
+*.tgz
+*.mcpb

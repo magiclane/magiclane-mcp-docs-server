@@ -1,0 +1,10 @@
+node_modules
+dist
+coverage
+*.lock
+package-lock.json
+eslint-report.json
+*.png
+*.gif
+*.jpg
+*.jpeg

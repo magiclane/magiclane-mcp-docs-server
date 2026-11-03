@@ -1,0 +1,16 @@
+version = 1
+
+SPDX-PackageName = "magiclane-mcp-docs-server"
+SPDX-PackageSupplier = "Organization: Magic Lane International B.V. (info@magiclane.com)"
+SPDX-PackageDownloadLocation = "https://github.com/magiclane/magiclane-mcp-docs-server"
+SPDX-PackageComment = "The Magic Lane MCP Docs Server gives AI agents searchable, always-current access to the Magic Lane developer documentation: the developer guides, the Maps SDKs for Flutter, Android, iOS, C++ and TypeScript, and the Cloud REST APIs."
+
+# The project's own files only: the top-level files and the project's folders.
+# Never "**", which would also claim the third-party packages in node_modules
+# wherever this file ships beside them (the MCPB bundle, the Docker image, an
+# installed copy). Each of those packages carries its own licence file.
+[[annotations]]
+path = ["*", ".husky/**", ".vscode/**", "LICENSES/**", "dist/**", "docs/**", "scripts/**", "src/**", "test/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Magic Lane International B.V. <info@magiclane.com>"
+SPDX-License-Identifier = "Apache-2.0"

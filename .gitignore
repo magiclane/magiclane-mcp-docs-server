@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+*.log
+*.tsbuildinfo
+*.mcpb
+# `npm run release` writes the package tarball to the repository root
+*.tgz
+eslint-report.json
+.DS_Store
+
+# Local environment configuration (never commit secrets)
+.env
+.env.local
+.env.*.local
+!.env.example

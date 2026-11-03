@@ -1,0 +1,46 @@
+# Dependencies and build output are produced inside the image.
+node_modules
+dist
+coverage
+*.tsbuildinfo
+
+# Tests and tooling
+test
+vitest.config.ts
+eslint.config.js
+.prettierrc
+.prettierignore
+cspell.config.json
+.husky
+scripts
+
+# Docs and metadata (README, LICENSE, LICENSES/ and REUSE.toml are copied explicitly)
+docs
+AGENTS.md
+CLAUDE.md
+CHANGELOG.md
+SECURITY.md
+CODE_OF_CONDUCT.md
+manifest.json
+.mcpbignore
+.npmignore
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# VCS and editor
+.git
+.gitattributes
+.gitignore
+.vscode
+
+# Release artifacts and scratch
+*.tgz
+*.mcpb
+Claude outputs
+
+# Docker
+Dockerfile
+.dockerignore

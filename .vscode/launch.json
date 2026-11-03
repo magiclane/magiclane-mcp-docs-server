@@ -1,0 +1,116 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Magic Lane: Start Dev Server",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "VERBOSE": "true"
+      },
+      "outputCapture": "std",
+      "autoAttachChildProcesses": true,
+      "skipFiles": ["<node_internals>/**"],
+      "preLaunchTask": "Magic Lane: Install Dependencies"
+    },
+    {
+      "name": "Magic Lane: Start HTTP Dev Server",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:http"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "VERBOSE": "true"
+      },
+      "outputCapture": "std",
+      "autoAttachChildProcesses": true,
+      "skipFiles": ["<node_internals>/**"],
+      "preLaunchTask": "Magic Lane: Install Dependencies"
+    },
+    {
+      "name": "Magic Lane: Start Production Server",
+      "type": "node",
+      "request": "launch",
+      "args": [],
+      "program": "${workspaceFolder}/dist/docs-server.esm.js",
+      "runtimeArgs": ["--enable-source-maps"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "outputCapture": "std",
+      "skipFiles": ["<node_internals>/**"],
+      "preLaunchTask": "Magic Lane: Build"
+    },
+    {
+      "name": "Magic Lane: Start Production Server (HTTP)",
+      "type": "node",
+      "request": "launch",
+      "args": [],
+      "program": "${workspaceFolder}/dist/docs-server-http.esm.js",
+      "runtimeArgs": ["--enable-source-maps"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "outputCapture": "std",
+      "skipFiles": ["<node_internals>/**"],
+      "preLaunchTask": "Magic Lane: Build"
+    },
+    {
+      "name": "Magic Lane: Run Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "test"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "outputCapture": "std",
+      "autoAttachChildProcesses": true,
+      "skipFiles": ["<node_internals>/**"],
+      "preLaunchTask": "Magic Lane: Install Dependencies"
+    },
+    {
+      "name": "Magic Lane: Run Tests (Watch)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "test:watch"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "outputCapture": "std",
+      "autoAttachChildProcesses": true,
+      "skipFiles": ["<node_internals>/**"],
+      "preLaunchTask": "Magic Lane: Install Dependencies"
+    },
+    {
+      "name": "Magic Lane: Debug Current Test File",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vitest", "run", "--no-file-parallelism", "${relativeFile}"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "outputCapture": "std",
+      "autoAttachChildProcesses": true,
+      "skipFiles": ["<node_internals>/**"],
+      "preLaunchTask": "Magic Lane: Install Dependencies"
+    },
+    {
+      "name": "Magic Lane: Debug Integration Tests (needs build)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vitest", "run", "--no-file-parallelism", "test/integration.test.ts"],
+      "cwd": "${workspaceFolder}",
+      "env": { "LIVE_DOCS_TESTS": "1" },
+      "console": "integratedTerminal",
+      "outputCapture": "std",
+      "autoAttachChildProcesses": true,
+      "skipFiles": ["<node_internals>/**"],
+      "preLaunchTask": "Magic Lane: Build"
+    }
+  ]
+}

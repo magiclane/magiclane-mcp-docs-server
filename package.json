@@ -1,0 +1,144 @@
+{
+  "name": "@magiclane/mcp-docs-server",
+  "version": "1.0.0",
+  "description": "Magic Lane MCP Docs Server — gives AI agents searchable, always-current access to the Magic Lane developer documentation (guides, Maps SDKs for Flutter/Android/iOS/C++/TypeScript, and the Cloud REST APIs).",
+  "mcpName": "io.github.magiclane/magiclane-mcp-docs-server",
+  "type": "module",
+  "bin": {
+    "mcp-docs-server": "dist/docs-server.esm.js",
+    "magiclane-mcp-docs": "dist/docs-server.esm.js",
+    "magiclane-mcp-docs-http": "dist/docs-server-http.esm.js"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -c -w",
+    "start": "node dist/docs-server.esm.js",
+    "start:http": "node dist/docs-server-http.esm.js",
+    "dev": "node --import tsx src/docs-server.ts",
+    "dev:http": "node --import tsx src/docs-server-http.ts",
+    "watch": "node --import tsx --watch src/docs-server.ts",
+    "inspect:build": "npm run build && npx -y @modelcontextprotocol/inspector@1.0.3 --transport stdio node dist/docs-server.esm.js",
+    "inspect:build:http": "npm run build && concurrently -k -s first -n server,inspector \"node dist/docs-server-http.esm.js\" \"node scripts/inspect-http.mjs\"",
+    "inspect:dev": "npx -y @modelcontextprotocol/inspector@1.0.3 --transport stdio npx -y tsx src/docs-server.ts",
+    "inspect:dev:http": "concurrently -k -s first -n server,inspector \"npx -y tsx src/docs-server-http.ts\" \"node scripts/inspect-http.mjs\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src test scripts *.js *.ts",
+    "lint:fix": "eslint src test scripts *.js *.ts --fix",
+    "lint:report_file": "eslint src --format json --output-file eslint-report.json",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "spellcheck": "cspell \"**/*.md\" \"**/*.ts\"",
+    "clean": "node scripts/clean.js",
+    "prebuild": "npm run clean",
+    "prepublishOnly": "npm run build",
+    "release": "node scripts/release.js",
+    "type-check": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.build.json --noEmit",
+    "prepare": "node scripts/prepare.js",
+    "test:live": "node scripts/live-tests.mjs",
+    "docker:build": "node scripts/docker-build.mjs",
+    "check:manifest": "node scripts/sync-manifest.mjs --check",
+    "sync:manifest": "node scripts/sync-manifest.mjs",
+    "check": "npm run build && npm run type-check && npm run lint && npm run format:check && npm run spellcheck && npm run check:manifest && npm run test:coverage"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "documentation",
+    "llms-txt",
+    "ai-agents",
+    "claude-code",
+    "cursor",
+    "github-copilot",
+    "magiclane",
+    "maps",
+    "maps-sdk",
+    "navigation",
+    "routing",
+    "flutter",
+    "android",
+    "ios",
+    "cpp",
+    "typescript",
+    "rest-api"
+  ],
+  "author": "Magic Lane International B.V.",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=22.13",
+      "onFail": "warn"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "LICENSES",
+    "REUSE.toml"
+  ],
+  "homepage": "https://developer.magiclane.com/docs/guides/mcp-docs-server/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magiclane/magiclane-mcp-docs-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/magiclane/magiclane-mcp-docs-server/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^4.1.8",
+    "@vitest/ui": "^4.1.8",
+    "concurrently": "^9.1.0",
+    "cspell": "^9.0.1",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.1",
+    "eslint-plugin-unused-imports": "^4.2.0",
+    "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "16.4.0",
+    "prettier": "^3.6.1",
+    "rollup": "^4.40.0",
+    "tslib": "^2.8.1",
+    "tsx": "^4.23.5",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.42.0",
+    "vitest": "^4.1.8"
+  },
+  "overrides": {
+    "shell-quote": "^1.11.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npx eslint --fix",
+      "npx prettier --write"
+    ],
+    "*.{js,jsx,mjs,cjs}": [
+      "npx eslint --fix",
+      "npx prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "npx prettier --write"
+    ]
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "//": "Default project: what editors auto-discover, covering src AND test so test files never fall into an inferred project without Node types. Emitting is done by tsconfig.build.json. allowJs: the tests import scripts/changelog.mjs, typed by its JSDoc.",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "node20",
+    "moduleResolution": "node16",
+    "rootDir": ".",
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "exclude": ["node_modules", "dist", "coverage"]
+}

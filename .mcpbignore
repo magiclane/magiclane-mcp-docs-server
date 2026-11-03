@@ -1,0 +1,35 @@
+# What the MCPB bundle must not carry: only dist/, node_modules/ (production),
+# package.json, manifest.json, README.md, LICENSE, LICENSES/ and REUSE.toml are needed.
+src/
+test/
+coverage/
+scripts/
+docs/
+.husky/
+.vscode/
+.git/
+.gitattributes
+.gitignore
+# Dependencies' own funding and CI files (node_modules/*/.github/), at any depth.
+**/.github/
+vitest.config.ts
+eslint.config.js
+rollup.config.js
+tsconfig*.json
+.prettierrc
+.prettierignore
+cspell.config.json
+.npmignore
+.dockerignore
+Dockerfile
+.env
+.env.*
+CLAUDE.md
+AGENTS.md
+CHANGELOG.md
+SECURITY.md
+CODE_OF_CONDUCT.md
+*.tsbuildinfo
+*.log
+*.tgz
+*.mcpb

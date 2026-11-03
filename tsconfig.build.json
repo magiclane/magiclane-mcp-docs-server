@@ -1,0 +1,21 @@
+{
+  "//": "Build project: feeds rollup (which overrides `module` to node16 and turns declaration emit off — see rollup.config.js). Kept standalone rather than extending tsconfig.json — inheriting `noEmit` makes @rollup/plugin-typescript re-derive `module` and emit a spurious TS5110. It also applies the stricter index-safety rule that production code holds to (test fixtures index known-populated arrays, so it is not enforced there).",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "node20",
+    "moduleResolution": "node16",
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "coverage", "test"]
+}

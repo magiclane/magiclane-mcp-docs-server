@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 Magic Lane International B.V. <info@magiclane.com>
+# SPDX-License-Identifier: Apache-2.0
+#
+# Every text file is stored and checked out with LF line endings, whatever the
+# platform or core.autocrlf says: prettier (endOfLine "lf"), npm run check and
+# the release all expect LF, and a Windows checkout with CRLF fails them.
+* text=auto eol=lf
+
+# Binary files: never converted.
+*.png binary
+*.jpg binary
+*.ico binary
+*.mcpb binary
+*.tgz binary

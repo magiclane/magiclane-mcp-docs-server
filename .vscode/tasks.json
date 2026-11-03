@@ -1,0 +1,356 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Magic Lane: Start Dev Server",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "dev"],
+      "dependsOn": ["Magic Lane: Install Dependencies"],
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Start HTTP Dev Server",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "dev:http"],
+      "dependsOn": ["Magic Lane: Install Dependencies"],
+      "dependsOrder": "sequence",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Start Watch Server",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "watch"],
+      "dependsOn": ["Magic Lane: Install Dependencies"],
+      "dependsOrder": "sequence",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Build",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "build"],
+      "dependsOn": ["Magic Lane: Install Dependencies"],
+      "dependsOrder": "sequence",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "Magic Lane: Type Check",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "type-check"],
+      "dependsOn": ["Magic Lane: Install Dependencies"],
+      "dependsOrder": "sequence",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "Magic Lane: Clean",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "clean"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Start Production Server",
+      "type": "shell",
+      "command": "npm",
+      "args": ["start"],
+      "dependsOn": ["Magic Lane: Build"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Start Production Server (HTTP)",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "start:http"],
+      "dependsOn": ["Magic Lane: Build"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Run Tests",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "test"],
+      "dependsOn": ["Magic Lane: Install Dependencies"],
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Run Tests (Watch)",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "test:watch"],
+      "dependsOn": ["Magic Lane: Install Dependencies"],
+      "dependsOrder": "sequence",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Run Tests (Coverage)",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "test:coverage"],
+      "dependsOn": ["Magic Lane: Install Dependencies"],
+      "dependsOrder": "sequence",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Run Integration Tests",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "test:live"],
+      "dependsOn": ["Magic Lane: Build"],
+      "dependsOrder": "sequence",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Lint",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "lint"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": ["$eslint-stylish"]
+    },
+    {
+      "label": "Magic Lane: Lint Fix",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "lint:fix"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": ["$eslint-stylish"]
+    },
+    {
+      "label": "Magic Lane: Lint Report File",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "lint:report_file"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Spellcheck",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "spellcheck"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Check Manifest Tools",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "check:manifest"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Validate MCP Manifest",
+      "type": "shell",
+      "command": "npx",
+      "args": ["--yes", "@anthropic-ai/mcpb@2.1.2", "validate", "manifest.json"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Audit Production Dependencies",
+      "type": "shell",
+      "command": "npm",
+      "args": ["audit", "--omit=dev", "--audit-level=high"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Verify (all local gates)",
+      "dependsOn": [
+        "Magic Lane: Build",
+        "Magic Lane: Type Check",
+        "Magic Lane: Lint",
+        "Magic Lane: Format Check",
+        "Magic Lane: Spellcheck",
+        "Magic Lane: Run Tests (Coverage)",
+        "Magic Lane: Check Manifest Tools",
+        "Magic Lane: Validate MCP Manifest",
+        "Magic Lane: Audit Production Dependencies"
+      ],
+      "dependsOrder": "sequence",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Format",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "format"],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Format Check",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "format:check"],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: MCP Inspector",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "inspect:dev"],
+      "dependsOn": ["Magic Lane: Install Dependencies"],
+      "dependsOrder": "sequence",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Magic Lane: Install Dependencies",
+      "type": "shell",
+      "command": "npm",
+      "args": ["install", "--ignore-scripts"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
